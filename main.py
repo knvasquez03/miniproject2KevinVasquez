@@ -5,7 +5,9 @@
 import pandas as pd
 
 
+df = pd.read_csv("./data/niaaa_apparent_per_capita_consumption_1977_2023.csv", index_col=0)
 
+print(df.head())
 
 # This project will be using Pandas dataframes. This isn't intended to be full blown data science project. The goal here is to come up with some question and then see what API or datasets you can use to get the information needed to answer that question. This will get you familar with working with datasets and asking questions, researching APIs and gathering datasets. If you get stuck here, please email me!
 #
