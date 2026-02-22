@@ -7,6 +7,19 @@ from pathlib import Path
 import pandas as pd
 import matplotlib.pyplot as plt
 
+charts = Path('charts')
+if not charts.exists():
+    Path(r'charts').mkdir()
+
+# Load dataset
+df = pd.read_csv("./data/niaaa_apparent_per_capita_consumption_1977_2023.csv")
+
+df["year"] = pd.to_numeric(df["year"], errors="coerce")
+df["ethanol_all_drinks_gallons_per_capita"] = pd.to_numeric(
+    df["ethanol_all_drinks_gallons_per_capita"], errors="coerce"
+)
+
+df = df.dropna(subset=["year", "ethanol_all_drinks_gallons_per_capita"])
 
 df = pd.read_csv("./data/niaaa_apparent_per_capita_consumption_1977_2023.csv", index_col=0)
 
