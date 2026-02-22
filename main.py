@@ -2,7 +2,10 @@
 ### Kevin Vasquez
 ### Mini Project 2
 
+from pathlib import Path
+
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 df = pd.read_csv("./data/niaaa_apparent_per_capita_consumption_1977_2023.csv", index_col=0)
