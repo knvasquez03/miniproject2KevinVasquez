@@ -59,6 +59,7 @@ kansas = kansas.set_index("year")[
     "ethanol_all_drinks_gallons_per_capita"
 ]
 
+
 plt.figure(figsize=(10,6))
 plt.plot(us_avg.index, us_avg.values, label="US Average")
 plt.plot(kansas.index, kansas.values, label="Kansas")
