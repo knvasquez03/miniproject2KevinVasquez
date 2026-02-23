@@ -11,7 +11,7 @@ charts = Path('charts')
 if not charts.exists():
     Path(r'charts').mkdir()
 
-# Load dataset
+
 df = pd.read_csv("./data/niaaa_apparent_per_capita_consumption_1977_2023.csv")
 
 df["year"] = pd.to_numeric(df["year"], errors="coerce")
@@ -21,9 +21,56 @@ df["ethanol_all_drinks_gallons_per_capita"] = pd.to_numeric(
 
 df = df.dropna(subset=["year", "ethanol_all_drinks_gallons_per_capita"])
 
-df = pd.read_csv("./data/niaaa_apparent_per_capita_consumption_1977_2023.csv", index_col=0)
 
-print(df.head())
+latest_year = df["year"].max()
+
+df_latest = df[df["year"] == latest_year]
+
+top10 = df_latest.sort_values(
+    by="ethanol_all_drinks_gallons_per_capita",
+    ascending=False
+).head(10)
+
+states = top10["state_name"]
+values = top10["ethanol_all_drinks_gallons_per_capita"]
+
+plt.figure(figsize=(10,6))
+plt.barh(states, values)
+plt.xlabel("Ethanol (All Drinks) Gallons Per Capita")
+plt.ylabel("State")
+plt.title(f"Top 10 States by Alcohol Consumption ({int(latest_year)})")
+plt.gca().invert_yaxis()
+plt.tight_layout()
+plt.savefig(str(charts / "top10_states.png"))
+plt.show()
+
+# ---------------------------------
+# Kansas vs US Average Over Time
+# ---------------------------------
+
+# National average (mean of all states per year)
+us_avg = df.groupby("year")[
+    "ethanol_all_drinks_gallons_per_capita"
+].mean()
+
+# Kansas data
+kansas = df[df["state"] == "kansas"]
+kansas = kansas.set_index("year")[
+    "ethanol_all_drinks_gallons_per_capita"
+]
+
+plt.figure(figsize=(10,6))
+plt.plot(us_avg.index, us_avg.values, label="US Average")
+plt.plot(kansas.index, kansas.values, label="Kansas")
+plt.xlabel("Year")
+plt.ylabel("Ethanol (All Drinks) Gallons Per Capita")
+plt.title("Kansas vs US Average Alcohol Consumption Over Time")
+plt.legend()
+plt.tight_layout()
+plt.savefig(str(charts / "kansas_vs_us_trend.png"))
+plt.show()
+
+
 
 # This project will be using Pandas dataframes. This isn't intended to be full blown data science project. The goal here is to come up with some question and then see what API or datasets you can use to get the information needed to answer that question. This will get you familar with working with datasets and asking questions, researching APIs and gathering datasets. If you get stuck here, please email me!
 #
