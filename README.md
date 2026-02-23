@@ -5,46 +5,53 @@
  
 # Project Title
  
-Simple overview of use/purpose.
+Miniproject2.
  
 ## Description
  
-An in-depth paragraph about your project and overview of use.
+The project loads and processes the dataset using Pandas, performs statistical analysis, and generates visualizations using Matplotlib.
  
 ## Getting Started
  
 ### Dependencies
  
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
-* List pip install instructions.
+This program requires:
+Python 3.9 or newer
+Pandas
+Matplotlib
+contourpy==1.3.3
+cycler==0.12.1
+et_xmlfile==2.0.0
+fonttools==4.61.1
+kiwisolver==1.4.9
+matplotlib==3.10.8
+numpy==2.4.2
+openpyxl==3.1.5
+packaging==26.0
+pandas==3.0.1
+pillow==12.1.1
+pyparsing==3.3.2
+python-dateutil==2.9.0.post0
+six==1.17.0
  
 ### Installing
- 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
- 
+https://github.com/knvasquez03/miniproject2KevinVasquez
+
 ### Executing program
  
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+python main.py
  
 ## Help
  
-Any advise for common problems or issues.
+No real issues for miniproject. Just make sure to use the right panda codes for either a csv or xsml.
 ```
 command to run if program contains helper info
 ```
  
 ## Authors
  
-Contributors names and contact info
- 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+Kevin Vasquez
+knvasquez@mail.fhsu.edu
  
 ## Version History
  
@@ -61,8 +68,6 @@ This project is licensed under the [NAME HERE] License - see the LICENSE.md file
 ## Acknowledgments
  
 Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+* https://www.kaggle.com/datasets/sanaijlalshahrukh/us-alcohol-consumption-by-state-19772023
+https://pandas.pydata.org/pandas-docs/stable/getting_started/comparison/comparison_with_spreadsheets.html
+* https://github.com/profzeller/miniproject2JasonZeller2/blob/main/README.md
